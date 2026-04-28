@@ -2,17 +2,17 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Wine } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "About", href: "#about" },
-  { name: "FAQ", href: "#faq" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  { name: "FAQ", href: "/#faq" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ isDark = false }: { isDark?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -24,20 +24,36 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Determine text color based on scroll and page theme
+  const textColor = scrolled
+    ? "text-brand-primary"
+    : isDark
+      ? "text-brand-cream"
+      : "text-brand-primary";
+
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-brand-cream/95 backdrop-blur-md py-3 shadow-soft" : "bg-transparent py-6"
+        scrolled
+          ? "bg-brand-cream/95 backdrop-blur-md py-3 shadow-soft"
+          : "bg-transparent py-6"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center">
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 rounded-xl bg-brand-primary flex items-center justify-center">
-              <Wine className="w-6 h-6 text-brand-cream" />
-            </div>
-            <span className="text-2xl font-black tracking-tight text-brand-primary">
-              myxx<span className="text-brand-accent">masters</span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <Image
+              src="/images/logo light.png"
+              alt="MYXX Masters Logo"
+              width={50}
+              height={50}
+              className="h-25 w-auto object-contain"
+              priority
+            />
+            <span
+              className={`text-2xl md:text-3xl font-black tracking-tighter transition-colors ${textColor}`}
+            >
+              MyxxMasters
             </span>
           </Link>
 
@@ -47,14 +63,26 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-bold text-brand-primary/80 hover:text-brand-accent transition-colors"
+                className={`text-sm font-bold transition-colors hover:text-brand-accent ${
+                  scrolled
+                    ? "text-brand-primary/80"
+                    : isDark
+                      ? "text-brand-cream/80"
+                      : "text-brand-primary/80"
+                }`}
               >
                 {link.name}
               </Link>
             ))}
             <Link
-              href="#booking"
-              className="btn-primary py-2.5 text-sm"
+              href="/services#quote-form"
+              className={`btn-primary py-2.5 text-sm transition-all ${
+                scrolled
+                  ? "bg-brand-primary text-brand-cream"
+                  : isDark
+                    ? "bg-brand-cream text-brand-primary border-brand-cream hover:bg-brand-accent hover:text-brand-primary hover:border-brand-accent"
+                    : "bg-brand-primary text-brand-cream"
+              }`}
             >
               Book Now
             </Link>
@@ -64,9 +92,13 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-brand-primary p-2"
+              className={`p-2 transition-colors ${textColor}`}
             >
-              {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+              {isOpen ? (
+                <X className="w-8 h-8" />
+              ) : (
+                <Menu className="w-8 h-8" />
+              )}
             </button>
           </div>
         </div>
@@ -93,7 +125,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="#booking"
+                href="/services#quote-form"
                 onClick={() => setIsOpen(false)}
                 className="w-full text-center btn-primary py-4 text-xl"
               >

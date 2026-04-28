@@ -6,16 +6,28 @@ import { ChevronDown, Send, Calendar, Users, MapPin } from "lucide-react";
 
 const faqs = [
   {
-    q: "Are your bartenders licensed?",
-    a: "Yes, every bartender on our team is TIPS certified and state-licensed. We prioritize safety and professionalism at every event.",
+    q: "What should I know about your pricing?",
+    a: "My standard pricing is $3 per person for up to 100 people with a tip jar. For events up to 100 people without a tip jar, pricing ranges up to $350. However, I am very negotiable and willing to work within reasonable budgets.",
   },
   {
-    q: "Do you provide glassware and ice?",
-    a: "We offer full-service packages that include premium glassware, crystal-clear ice, garnishes, and all necessary tools.",
+    q: "What is your process for working with new customers?",
+    a: "I start by understanding the type of event you're hosting and the guest count. I also like to discuss your budget—there's always room for negotiation! Once the logistics are set, we focus on making sure you and your guests enjoy the event!!",
   },
   {
-    q: "What areas do you serve?",
-    a: "We are based in Orlando and serve all of Central Florida, including Tampa, Daytona, and surrounding areas.",
+    q: "What training and experience do you have?",
+    a: "I have over 5 years of experience in bartending and I am certified in mixology by the 123 Bartending school.",
+  },
+  {
+    q: "How did you get started in bartending?",
+    a: "I fell in love with bartending at an event in 2011. The bartenders were so energetic and clearly loved what they did—I wanted to bring that same passion and energy to my own work!!",
+  },
+  {
+    q: "What types of customers have you worked with?",
+    a: "I've done it all—from weddings and birthday parties to high-energy nightclubs and relaxed backyard Bar-B-Ques.",
+  },
+  {
+    q: "What advice do you have for someone hiring a bartender?",
+    a: "Look for someone who truly loves what they do. That energy and passion always shows through in the quality of the work!!!",
   },
 ];
 
@@ -67,27 +79,39 @@ export default function Booking() {
               <Calendar className="w-10 h-10" />
             </div>
             
-            <h2 className="text-4xl font-black mb-8 italic">Check Availability</h2>
+            <h2 className="text-4xl font-black mb-8 italic">Lock in your date.</h2>
 
             <form className="space-y-6">
-              <div className="space-y-1">
-                <label className="text-xs font-black uppercase tracking-widest opacity-60">Full Name</label>
-                <input type="text" className="w-full bg-brand-primary/5 border-2 border-transparent focus:border-brand-accent rounded-2xl p-4 font-bold outline-none transition-all" placeholder="John Doe" />
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-1">
+                  <label className="text-xs font-black uppercase tracking-widest opacity-60">Full Name</label>
+                  <input type="text" className="w-full bg-brand-primary/5 border-2 border-transparent focus:border-brand-accent rounded-2xl p-4 font-bold outline-none transition-all" placeholder="John Doe" />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-xs font-black uppercase tracking-widest opacity-60">Email Address</label>
+                  <input type="email" className="w-full bg-brand-primary/5 border-2 border-transparent focus:border-brand-accent rounded-2xl p-4 font-bold outline-none transition-all" placeholder="john@example.com" />
+                </div>
               </div>
               
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-1">
                   <label className="text-xs font-black uppercase tracking-widest opacity-60">Event Date</label>
-                  <div className="relative">
-                    <input type="date" className="w-full bg-brand-primary/5 border-2 border-transparent focus:border-brand-accent rounded-2xl p-4 font-bold outline-none transition-all" />
-                  </div>
+                  <input type="date" className="w-full bg-brand-primary/5 border-2 border-transparent focus:border-brand-accent rounded-2xl p-4 font-bold outline-none transition-all" />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-black uppercase tracking-widest opacity-60">Guest Count</label>
-                  <div className="relative">
-                    <input type="number" className="w-full bg-brand-primary/5 border-2 border-transparent focus:border-brand-accent rounded-2xl p-4 font-bold outline-none transition-all" placeholder="150" />
-                  </div>
+                  <label className="text-xs font-black uppercase tracking-widest opacity-60">Event Type</label>
+                  <select className="w-full bg-brand-primary/5 border-2 border-transparent focus:border-brand-accent rounded-2xl p-4 font-bold outline-none transition-all appearance-none">
+                    <option>Wedding</option>
+                    <option>Corporate Event</option>
+                    <option>Festival</option>
+                    <option>Private Party</option>
+                  </select>
                 </div>
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-xs font-black uppercase tracking-widest opacity-60">Guest Count</label>
+                <input type="number" className="w-full bg-brand-primary/5 border-2 border-transparent focus:border-brand-accent rounded-2xl p-4 font-bold outline-none transition-all" placeholder="150" />
               </div>
 
               <div className="space-y-1">
@@ -95,9 +119,9 @@ export default function Booking() {
                 <textarea rows={4} className="w-full bg-brand-primary/5 border-2 border-transparent focus:border-brand-accent rounded-2xl p-4 font-bold outline-none transition-all" placeholder="Tell us about your event..."></textarea>
               </div>
 
-              <button type="submit" className="w-full btn-primary py-5 text-xl flex items-center justify-center group">
-                Send Inquiry
-                <Send className="ml-2 w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <button type="submit" className="w-full btn-primary text-xl py-6 flex items-center justify-center gap-4 bg-brand-primary text-brand-cream border-brand-primary hover:bg-brand-accent hover:border-brand-accent hover:text-brand-primary">
+                Request Custom Quote
+                <Send className="w-6 h-6" />
               </button>
             </form>
           </motion.div>

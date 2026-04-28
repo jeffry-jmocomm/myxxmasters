@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+@layer base {
+  button, 
+  a, 
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="image"],
+  input[type="checkbox"],
+  input[type="radio"],
+  label,
+  select,
+  summary {
+    cursor: pointer;
+  }
+}
+
 @theme {
   --color-background: #FDFCF6;
   --color-foreground: #1E1E2E;
