@@ -15,7 +15,7 @@ export default function Footer() {
               We'll pour it.
             </span>
           </h2>
-          <Link href="/services#quote-form">
+          <Link href="/#booking">
             <button className="btn-primary bg-brand-cream text-brand-primary px-12 py-5 text-xl">
               Let's build your bar →
             </button>
@@ -51,14 +51,6 @@ export default function Footer() {
             <ul className="space-y-4 text-lg font-bold">
               <li>
                 <Link
-                  href="/services"
-                  className="hover:text-brand-accent transition-colors"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/about"
                   className="hover:text-brand-accent transition-colors"
                 >
@@ -67,7 +59,23 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#faq"
+                  href="/services"
+                  className="hover:text-brand-accent transition-colors"
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/testimonials"
+                  className="hover:text-brand-accent transition-colors"
+                >
+                  Testimonials
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/faq"
                   className="hover:text-brand-accent transition-colors"
                 >
                   FAQ
@@ -112,8 +120,8 @@ export default function Footer() {
         </div>
 
         <div className="pt-10 flex flex-col md:row justify-between items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em] opacity-40">
-          <p>© 2024 MYXX MASTERS. ALL RIGHTS RESERVED.</p>
-          <div className="flex gap-10">
+          <p>© 2026 MYXX MASTERS. ALL RIGHTS RESERVED.</p>
+          {/* <div className="flex gap-10">
             <Link
               href="/privacy"
               className="hover:text-brand-accent transition-colors"
@@ -126,7 +134,7 @@ export default function Footer() {
             >
               Terms
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

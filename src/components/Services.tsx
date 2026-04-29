@@ -17,7 +17,7 @@ const services = [
       "State-Certified Staff",
     ],
     cta: "Plan Your Wedding Bar",
-    href: "/services",
+    href: "#booking",
   },
   {
     title: "Corporate Events",
@@ -30,7 +30,7 @@ const services = [
       "Quick-Pore Efficiency",
     ],
     cta: "Book Your Corporate Event",
-    href: "/services",
+    href: "#booking",
   },
   {
     title: "Festivals & Large Events",
@@ -43,7 +43,7 @@ const services = [
       "Strict ID Compliance",
     ],
     cta: "Scale Your Festival Bar",
-    href: "/services",
+    href: "#booking",
   },
 ];
 
@@ -55,6 +55,14 @@ export default function Services() {
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-brand-accent font-bold uppercase tracking-widest text-sm mb-4"
+          >
+            Our Services
+          </motion.div>
           <h2 className="text-4xl md:text-6xl font-black mb-4">
             Run your next event <br />
             <span className="pill-highlight px-6">like a boss.</span>
@@ -108,6 +116,19 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-24 text-center"
+        >
+          <Link href="#booking">
+            <button className="btn-outline px-12 py-4 text-xl">
+              Explore the Services
+            </button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

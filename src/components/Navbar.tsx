@@ -9,7 +9,8 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
-  { name: "FAQ", href: "/#faq" },
+  { name: "Testimonials", href: "/testimonials" },
+  { name: "FAQ", href: "/faq" },
 ];
 
 export default function Navbar({ isDark = false }: { isDark?: boolean }) {
@@ -75,7 +76,7 @@ export default function Navbar({ isDark = false }: { isDark?: boolean }) {
               </Link>
             ))}
             <Link
-              href="/services#quote-form"
+              href="/#booking"
               className={`btn-primary py-2.5 text-sm transition-all ${
                 scrolled
                   ? "bg-brand-primary text-brand-cream"
@@ -125,7 +126,7 @@ export default function Navbar({ isDark = false }: { isDark?: boolean }) {
                 </Link>
               ))}
               <Link
-                href="/services#quote-form"
+                href="/#booking"
                 onClick={() => setIsOpen(false)}
                 className="w-full text-center btn-primary py-4 text-xl"
               >

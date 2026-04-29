@@ -47,6 +47,14 @@ export default function BrandPillars() {
     <section id="about" className="py-24 bg-brand-primary">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-brand-accent font-bold uppercase tracking-widest text-sm mb-4"
+          >
+            Why Myxxmaster?
+          </motion.div>
           <h2 className="text-4xl md:text-6xl font-black text-brand-cream mb-4">
             Design, manage, and <br />
             <span className="pill-highlight px-6 text-brand-primary">simplify your event bar.</span>
@@ -70,7 +78,6 @@ export default function BrandPillars() {
                   {pillar.description}
                 </p>
               </div>
-              <div className="text-xs font-bold uppercase tracking-widest opacity-60">Learn More →</div>
             </motion.div>
           ))}
         </div>

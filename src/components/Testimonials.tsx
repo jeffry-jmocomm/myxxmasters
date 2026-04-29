@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -98,9 +99,16 @@ export default function Testimonials() {
     <section className="pt-32 pb-32 bg-brand-primary/[0.03] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-black mb-32">
-            Trusted by <br />
-            <span className="pill-highlight px-6">the best.</span>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-brand-accent font-bold uppercase tracking-widest text-sm mb-4"
+          >
+            Testimonials
+          </motion.div>
+          <h2 className="text-3xl md:text-5xl font-medium mb-32">
+            Trusted by <span className="pill-highlight px-6">the best.</span>
           </h2>
         </div>
 
@@ -116,7 +124,7 @@ export default function Testimonials() {
             >
               {/* Profile Image */}
               <div className="flex-1 w-full">
-                <div className="relative h-[400px] md:h-[600px] rounded-[3rem] overflow-hidden shadow-2xl rotate-[-2deg]">
+                <div className="relative h-90 md:h-135 rounded-3xl overflow-hidden shadow-2xl -rotate-2">
                   <Image
                     src={testimonials[current].image}
                     alt={testimonials[current].author}
@@ -130,7 +138,7 @@ export default function Testimonials() {
               <div className="flex-[1.2] relative">
                 <Quote className="w-20 h-20 text-brand-accent/20 absolute -top-10 -left-10" />
                 <div className="relative z-10">
-                  <h2 className="text-2xl md:text-4xl font-black mb-8 leading-tight italic">
+                  <h2 className="font-sans text-xl md:text-3xl font-bold mb-8 leading-relaxed">
                     "{testimonials[current].quote}"
                   </h2>
                   <div>
@@ -173,6 +181,19 @@ export default function Testimonials() {
             </button>
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center"
+        >
+          <Link href="/testimonials">
+            <button className="btn-outline px-12 py-4 text-xl">
+              View All Testimonials
+            </button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
